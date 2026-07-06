@@ -130,3 +130,8 @@ STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+os.environ.setdefault(
+    "DJANGO_SETTINGS_MODULE",
+    "library_management_system.settings",
+)
