@@ -143,5 +143,5 @@ os.environ.setdefault(
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    "library-management-system.onrender.com",
+    "library-mamagement-system.onrender.com",
 ]
