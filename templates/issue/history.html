@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUPI Library History</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    {% include 'nav.html' %}
+    <h1>Issue Books History</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Depertment</th>
+                <th>Shift</th>
+                <th>Book</th>
+                <th>Issued At</th>
+                <th>Returned At</th>
+            </tr>
+        </thead>
+        {% for issue in issues %}
+        <tbody>
+            <tr>
+                <td>{{ issue.student_id }}</td>
+                <td>{{ issue.student_name }}</td>
+                <td>{{ issue.department }}</td>
+                <td>{{ issue.shift }}</td>
+                <td>{{ issue.book.title }}</td>
+                <td>{{ issue.issued_at }}</td>
+                <td>{{ issue.returned_at }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No issue records found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
