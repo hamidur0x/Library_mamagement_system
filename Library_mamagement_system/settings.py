@@ -116,7 +116,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-DEBUG = False
+DEBUG = True
 
 import os
 
@@ -124,14 +124,24 @@ ALLOWED_HOSTS = [
     os.environ.get("RENDER_EXTERNAL_HOSTNAME", ""),
 ]
 
+# Static files
+
 STATIC_URL = "static/"
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
-# STATIC_URL = "/static/"
-# STATICFILES_DIRS = [BASE_DIR / "static"]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 os.environ.setdefault(
     "DJANGO_SETTINGS_MODULE",
     "library_management_system.settings",
 )
+
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "library-management-system.onrender.com",
+]
